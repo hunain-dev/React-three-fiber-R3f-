@@ -1,29 +1,31 @@
 import { OrbitControls } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import { useRef, useState } from 'react'
+import { useFrame, useLoader } from '@react-three/fiber';
+import { useRef } from 'react'
+import { TextureLoader } from 'three'
 
 const Experience = () => {
-    const Usecube = useRef();
-    const [Cubecolor, setCubecolor] = useState("brown")
+  const cuberotatateref = useRef();
+  
+  useFrame((state,delta)=>{
+    cuberotatateref.current.rotation.x += delta
+    cuberotatateref.current.rotation.y += delta
 
-    useFrame((state,delta)=>{
-        Usecube.current.rotation.x += delta;
-        Usecube.current.rotation.y += delta;
+  });
+
+    const textureload = useLoader(
+      TextureLoader,
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtX366oGduW1GdXg-QVbKSQTgsCcIrFqIPm7thGavSg&s=10"
+    )
+    
 
 
-    })
   return (
     <>
-           <ambientLight intensity={1.2} color={"grey"}/>,
-           <directionalLight intensity = {2} position={[1,1,1]} color={"white"} />
-       
-    <mesh ref={Usecube}>
-  
-        <boxGeometry/>
-        <meshBasicMaterial color={Cubecolor} />
-        <OrbitControls enableDamping = {true} />
-
-    </mesh>
+      <mesh ref={cuberotatateref}>
+        <boxGeometry />
+        <OrbitControls enableDamping = {true} enableZoom ={true} />
+        <meshBasicMaterial  map={textureload}/>
+      </mesh>
       
     </>
   )

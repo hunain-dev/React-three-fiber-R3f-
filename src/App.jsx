@@ -6,7 +6,6 @@ const App = () => {
     <div className="container">
       <Canvas>
         <Experience/>
-      
       </Canvas>
       
     </div>

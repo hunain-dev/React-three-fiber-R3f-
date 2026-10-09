@@ -6,6 +6,7 @@ const App = () => {
     <div className="container">
       <Canvas>
         <Experience/>
+        {/* <Bike/> */}
       </Canvas>
       
     </div>

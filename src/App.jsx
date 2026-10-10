@@ -1,13 +1,13 @@
-import { Canvas } from "@react-three/fiber"
-import Experience from "./Components/Experience"
+// import { Canvas } from "@react-three/fiber"
+// import Experience from "./Components/Experience"
+import Threejs from "./Components/Threejs"
 
 const App = () => {
   return (
     <div className="container">
-      <Canvas>
-        <Experience/>
+        {/* <Experience/> */}
         {/* <Bike/> */}
-      </Canvas>
+        <Threejs/>
       
     </div>
   )

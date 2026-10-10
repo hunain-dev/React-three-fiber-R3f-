@@ -9,11 +9,15 @@ const Experience = () => {
   
   const cuberotatateref = useRef();
   
+  // animation
+
   useFrame((state,delta)=>{
     cuberotatateref.current.rotation.x += delta
     cuberotatateref.current.rotation.y += delta
 
   });
+
+  // for adding image in cube
 
     // const textureload = useLoader(
     //   TextureLoader,
@@ -22,6 +26,8 @@ const Experience = () => {
     
   //  fror moddel
 
+// for adding a model
+
   // const {scene} = useGLTF("./Robot.glb");
 
 
@@ -29,16 +35,12 @@ const Experience = () => {
 {/* ui debug */}
 
 const {x,y,z} = useControls({
+
   x: {value: 0,min: -4, max: 3,step:0.01},
   y: {value: 0,min: -4, max: 3,step:0.01},
   z: {value: 0,min: -4, max: 3,step:0.01}
 
-
-
 });
-
-
-
 
   return (
     <>
